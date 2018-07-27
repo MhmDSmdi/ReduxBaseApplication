@@ -8,9 +8,7 @@ const placeList = (props) => {
         <ListItem 
             key={index} 
             placeName={place}
-            onItemPressed = {() => {
-               
-            }}/>
+            onItemPressed = {() => props.onItemDeleted(index)}/>
 
       ));
     return (
