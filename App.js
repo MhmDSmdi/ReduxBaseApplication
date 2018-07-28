@@ -23,13 +23,13 @@ export default class App extends Component {
   placeAddedHandler = placeName => {
     this.setState(prevState => {
       return {
-        places: prevState.places.concat({
-          key: Math.random(),
-          name : placeName,
-          image : {
-            uri : "https://i.pinimg.com/736x/8b/b4/1c/8bb41cd3738254e52808707eb737c43f.jpg"
-          }
-        })
+        // places: prevState.places.concat({
+        //   key: Math.random(),
+        //   name : placeName,
+        //   image : {
+        //     uri : "https://i.pinimg.com/736x/8b/b4/1c/8bb41cd3738254e52808707eb737c43f.jpg"
+        //   }
+        // })
       };
     });
   };
