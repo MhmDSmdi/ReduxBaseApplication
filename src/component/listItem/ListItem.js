@@ -7,7 +7,7 @@ const listItem = (props) => (
             <Image style={styles.placeImage} source={props.placeImage} />
             <Text>{props.placeName}</Text>
         </View>
-  </TouchableOpacity>
+    </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({

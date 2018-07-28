@@ -10,7 +10,6 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TextInput, Button} from 'react-native';
 import PlaceInput from './src/component/placeInput/PlaceInput';
 import PlaceList from './src/component/placeList/PlaceList'; 
-// import placeImage from './src/assets/images.png'
 import PlaceDetail from './src/component/placeDetail/PlaceDetail'
 import { connect } from 'react-redux';
 import {addPlace, deletePlace, selectPlace, deselectPlace} from './src/store/action/places'
@@ -22,11 +21,11 @@ class App extends Component {
   };
 
   placeDeletedHandler = () => {
-   this.props.deletePlace();
+   this.props.onDeletePlace();
   }
 
   placeSelectedHandler = key => {
-    this.props.selectedPlace(key);
+    this.props.onSelectPlace(key);
   }
 
   modalClosedHandler = () => {
@@ -75,4 +74,4 @@ const mapDispatchToProps = dispatch => {
   };
 }
 
-export default connect()(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
