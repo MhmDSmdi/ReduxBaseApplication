@@ -4,11 +4,18 @@ import {
     Text,
     StyleSheet
 } from "react-native";
-import { DrawerNavigator } from 'react-navigation';
+import { DrawerNavigator, StackNavigator } from 'react-navigation';
 import HomeScreen from './HomeScreen'
+import HomeScreenTabNavigator from './HomeScreenTabNavigator'
+
+const InnerStackNavigator = new StackNavigator({
+    TabNavigator:{
+        screen : HomeScreenTabNavigator
+    }
+}) 
 
 const AppDrawerNavigator = new DrawerNavigator ({
-    HomeScreen : {screen : HomeScreen}
+    HomeScreen : {screen : InnerStackNavigator}
 }) 
 export default AppDrawerNavigator;
 

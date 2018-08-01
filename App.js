@@ -15,7 +15,7 @@ import { connect } from 'react-redux';
 import HomeScreen from './src/screen/home/HomeScreen';
 import LoginScreen from './src/screen/login/LoginScreen';
 import WelcomeScreen from './src/screen/welcome/WelcomeScreen';
-import {StackNavigator} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation';
 import {addPlace, deletePlace, selectPlace, deselectPlace} from './src/store/action/places'
 import DrawerNavigator from './src/screen/home/DrawerNavigator';
 class App extends Component {
@@ -69,10 +69,17 @@ const mapStateToProps = state => {
   };
 }; 
 
-const AppStackNavigator = new StackNavigator({
+const AppStackNavigator = new createStackNavigator({
   WelcomeScreen: {screen : WelcomeScreen},
   LoginScreen : {screen : LoginScreen},
-  DrawerNavigator : {screen : DrawerNavigator}
+  DrawerNavigator : {screen : DrawerNavigator,
+  navigationOptions : {
+    header : null
+  }}
+}, {
+  navigationOptions: {
+    gesturesEnabled : false
+  }
 })
 
 const mapDispatchToProps = dispatch => {
