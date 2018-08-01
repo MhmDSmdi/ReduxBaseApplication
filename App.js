@@ -10,8 +10,12 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TextInput, Button} from 'react-native';
 import PlaceInput from './src/component/placeInput/PlaceInput';
 import PlaceList from './src/component/placeList/PlaceList'; 
-import PlaceDetail from './src/component/placeDetail/PlaceDetail'
+import PlaceDetail from './src/component/placeDetail/PlaceDetail';
 import { connect } from 'react-redux';
+import HomeScreen from './src/screen/home/HomeScreen';
+import LoginScreen from './src/screen/login/LoginScreen';
+import WelcomeScreen from './src/screen/welcome/WelcomeScreen';
+import {StackNavigator} from 'react-navigation';
 import {addPlace, deletePlace, selectPlace, deselectPlace} from './src/store/action/places'
 
 class App extends Component {
@@ -34,14 +38,15 @@ class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <PlaceDetail 
-          selectedPlace = {this.props.selectedPlace} 
-          onItemDeleted = {this.placeDeletedHandler} 
-          onModalClosed = {this.modalClosedHandler}/>
-        <PlaceInput onPlaceAdded={this.placeAddedHandler} />
-        <PlaceList places={this.props.places} onItemSelected = {this.placeSelectedHandler}/>
-      </View>
+      // <View style={styles.container}>
+      //   <PlaceDetail 
+      //     selectedPlace = {this.props.selectedPlace} 
+      //     onItemDeleted = {this.placeDeletedHandler} 
+      //     onModalClosed = {this.modalClosedHandler}/>
+      //   <PlaceInput onPlaceAdded={this.placeAddedHandler} />
+      //   <PlaceList places={this.props.places} onItemSelected = {this.placeSelectedHandler}/>
+      // </View>
+        <AppStackNavigator/>
     );
   }
 }
@@ -64,8 +69,10 @@ const mapStateToProps = state => {
   };
 }; 
 
-const AppStackNavigator = new AppStackNavigator({
-  
+const AppStackNavigator = new StackNavigator({
+  WelcomeScreen: {screen : WelcomeScreen},
+  LoginScreen : {screen : LoginScreen},
+  HomeScreen : {screen : HomeScreen}, 
 })
 
 const mapDispatchToProps = dispatch => {
