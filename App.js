@@ -10,10 +10,14 @@ import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TextInput, Button} from 'react-native';
 import PlaceInput from './src/component/placeInput/PlaceInput';
 import PlaceList from './src/component/placeList/PlaceList'; 
-import PlaceDetail from './src/component/placeDetail/PlaceDetail'
+import PlaceDetail from './src/component/placeDetail/PlaceDetail';
 import { connect } from 'react-redux';
+import HomeScreen from './src/screen/home/HomeScreen';
+import LoginScreen from './src/screen/login/LoginScreen';
+import WelcomeScreen from './src/screen/welcome/WelcomeScreen';
+import {createStackNavigator} from 'react-navigation';
 import {addPlace, deletePlace, selectPlace, deselectPlace} from './src/store/action/places'
-
+import DrawerNavigator from './src/screen/home/DrawerNavigator';
 class App extends Component {
 
   placeAddedHandler = placeName => {
@@ -34,14 +38,15 @@ class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <PlaceDetail 
-          selectedPlace = {this.props.selectedPlace} 
-          onItemDeleted = {this.placeDeletedHandler} 
-          onModalClosed = {this.modalClosedHandler}/>
-        <PlaceInput onPlaceAdded={this.placeAddedHandler} />
-        <PlaceList places={this.props.places} onItemSelected = {this.placeSelectedHandler}/>
-      </View>
+      // <View style={styles.container}>
+      //   <PlaceDetail 
+      //     selectedPlace = {this.props.selectedPlace} 
+      //     onItemDeleted = {this.placeDeletedHandler} 
+      //     onModalClosed = {this.modalClosedHandler}/>
+      //   <PlaceInput onPlaceAdded={this.placeAddedHandler} />
+      //   <PlaceList places={this.props.places} onItemSelected = {this.placeSelectedHandler}/>
+      // </View>
+        <AppStackNavigator/>
     );
   }
 }
@@ -63,6 +68,19 @@ const mapStateToProps = state => {
     selectedPlace : state.places.selectedPlace
   };
 }; 
+
+const AppStackNavigator = new createStackNavigator({
+  WelcomeScreen: {screen : WelcomeScreen},
+  LoginScreen : {screen : LoginScreen},
+  DrawerNavigator : {screen : DrawerNavigator,
+  navigationOptions : {
+    header : null
+  }}
+}, {
+  navigationOptions: {
+    gesturesEnabled : false
+  }
+})
 
 const mapDispatchToProps = dispatch => {
   return {

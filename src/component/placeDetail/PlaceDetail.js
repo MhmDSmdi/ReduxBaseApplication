@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Modal, Text, Button, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+
 const placeDetail = props => {
     let modalContent = null;
 
@@ -17,9 +18,10 @@ const placeDetail = props => {
             <View style = {{flex : 1}}>
                 {modalContent}
                 <View style = {styles.btnContainer}>
-                    {/* <Button color = "rgba(170, 17, 17, 1)" title = "Delete" onPress = /> */}
-                    <TouchableOpacity color = 'rgba(170, 17, 17, 1)' onPress = {props.onItemDeleted}>
-                        <Icon size = {30} name = 'md-trash' color = 'white'/>
+                    <TouchableOpacity onPress = {props.onItemDeleted}>
+                        <View style = {{alignItems : 'center'}}>
+                            <Icon size = {30} name = 'md-trash' color = 'red'/>
+                        </View>
                     </TouchableOpacity>
                 </View>
             </View>
