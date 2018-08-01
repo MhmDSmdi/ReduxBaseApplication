@@ -8,13 +8,15 @@ class WelcomeScreeen extends Component {
     };
   }
 
+  static navigationOptions = {
+    header : null
+  }
+
   render() {
     return (
       <View>
         <Button title = "Login Screen" onPress = {() => this.props.navigation.navigate
         ('LoginScreen')}/>
-        <Button title = "Home Screen" onPress = {() => this.props.navigation.navigate
-        ('HomeScreen')}/>
       </View>
     );
   }

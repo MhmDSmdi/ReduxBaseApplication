@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import { 
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    Button
 } from "react-native";
 
 class LoginScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>LoginScreen</Text>
+                <Button title = "Submit" onPress = {() => this.props.navigation.navigate('DrawerNavigator')} />
             </View>
         );
     }

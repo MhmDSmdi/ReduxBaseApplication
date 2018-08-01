@@ -17,7 +17,7 @@ import LoginScreen from './src/screen/login/LoginScreen';
 import WelcomeScreen from './src/screen/welcome/WelcomeScreen';
 import {StackNavigator} from 'react-navigation';
 import {addPlace, deletePlace, selectPlace, deselectPlace} from './src/store/action/places'
-
+import DrawerNavigator from './src/screen/home/DrawerNavigator';
 class App extends Component {
 
   placeAddedHandler = placeName => {
@@ -72,7 +72,7 @@ const mapStateToProps = state => {
 const AppStackNavigator = new StackNavigator({
   WelcomeScreen: {screen : WelcomeScreen},
   LoginScreen : {screen : LoginScreen},
-  HomeScreen : {screen : HomeScreen}, 
+  DrawerNavigator : {screen : DrawerNavigator}
 })
 
 const mapDispatchToProps = dispatch => {

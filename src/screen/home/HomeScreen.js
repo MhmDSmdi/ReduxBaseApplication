@@ -11,7 +11,7 @@ class HomeScreen extends Component {
   render() {
     return (
       <View>
-        <Text> textInComponent </Text>
+        <Text> HOME SCREEN </Text>
       </View>
     );
   }
