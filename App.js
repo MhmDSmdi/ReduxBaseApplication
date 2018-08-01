@@ -64,6 +64,10 @@ const mapStateToProps = state => {
   };
 }; 
 
+const AppStackNavigator = new AppStackNavigator({
+  
+})
+
 const mapDispatchToProps = dispatch => {
   return {
     onAddPlace : (name) => dispatch(addPlace(name)),
